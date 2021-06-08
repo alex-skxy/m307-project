@@ -1,14 +1,20 @@
 # m307-project
 
+## Sitemap
+
 | Name   | Route   | Inhalt                                      |
 |--------|---------|---------------------------------------------|
 | Home   | /       | navigation (links to the list and creation) |
-| List   | /list   | list of rents                               |
-| Create | /create | creation of rents                           |
+| List   | /list   | list loans                                  |
+| Create | /create | creation of loans                           |
+| Edit   | /edit   | editing/updating loans                      |
 
-## Sitemap
 ## Formulars
+
 ## Validation
+
 ## Database
+
 ## Test cases
+
 Project for ÜK Modul 307
