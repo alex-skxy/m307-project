@@ -22,6 +22,7 @@
             <th>Credit package</th>
             <th>Pay back until</th>
             <th>Due</th>
+            <th></th>
         </tr>
         <?php
         foreach ($result as $loan) {
@@ -35,10 +36,15 @@
                 <td><?= e($loan['credit_package']) ?></td>
                 <td><?= e($loan['payback_date']) ?></td>
                 <td><?= $loan['due'] == 0 ? '&#127774;' : '&#9889;' ?></td>
+                <td>
+                    <button onclick="window.location.href='/edit?id=<?= $loan['id_loan'] ?>'">&#x270F;&#xFE0F; edit
+                    </button>
+                </td>
             </tr>
         <?php } ?>
     </table>
-
+    <button onclick="window.location.href='/home">&#127968; Go back home</button>
+    <button onclick="window.location.href='/create'">&#10133; Create new loan</button>
 </div>
 
 <script src="public/js/app.js"></script>
