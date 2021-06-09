@@ -1,4 +1,5 @@
 <?php
+require 'app/Models/Example.php';
 
 class EditController
 {

@@ -11,33 +11,43 @@
 <div class="container">
     <h1 class="welcome">Create a new loan</h1>
     <form method="post">
-        <label for="name">Firstname</label>
-        <input type="text" id="name" name="name" placeholder="Firstname">
-        <label for="lastname">Lastname</label>
-        <input type="text" id="lastname" name="lastname" placeholder="Lastname">
-        <label for="email">E-Mail</label>
-        <input type="text" id="email" name="email" placeholder="E-Mail">
-        <label for="phone_number">Phone number</label>
-        <input type="text" id="phone_number" name="phone_number" placeholder="Phone number">
-        <label for="installments">Amount installments</label>
-        <input type="text" id="installments" name="installments" placeholder="Amount installments">
-        <label for="creditpackage">Loan package</label>
-        <select id="creditpackage" name="creditpackage">
-            <?php
-            foreach ($creditpackageData as $index => $creditpackage) {
-                echo "<option value='" . $creditpackage["id_creditpackage"] . "'>" . $creditpackage["name"] . "</option>";
-            }
-            ?>
-        </select>
+        <fieldset>
+            <legend>Personal Information</legend>
 
-        <label for="tbxPayday">Repayment date</label>
-        <input type="date" id="tbxPayday" name="Repayment date" placeholder="Repayment date" disabled>
+            <label for="name">Firstname</label>
+            <input type="text" id="name" name="name" placeholder="Firstname">
 
+            <label for="lastname">Lastname</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Lastname">
+            <br>
 
-        <button type="reset">Cancel</button>
+            <label for="email">E-Mail</label>
+            <input type="text" id="email" name="email" placeholder="E-Mail">
+
+            <label for="phone_number">Phone number</label>
+            <input type="text" id="phone_number" name="phone_number" placeholder="Phone number">
+        </fieldset>
+
+        <fieldset>
+            <legend>Loan Information</legend>
+            <label for="installments">Amount installments</label>
+            <input type="number" id="installments" name="installments" placeholder="Amount installments" min="1" max="10">
+            <label for="creditpackage">Loan package</label>
+            <select id="creditpackage" name="creditpackage">
+                <?php
+                foreach ($creditpackageData as $index => $creditpackage) {
+                    echo "<option value='" . $creditpackage["id_creditpackage"] . "'>" . $creditpackage["name"] . "</option>";
+                }
+                ?>
+            </select>
+
+            <label for="tbxPayday">Repayment date</label>
+            <input type="date" id="tbxPayday" name="Repayment date" placeholder="Repayment date" disabled>
+        </fieldset>
+
         <button type="submit">Create Loan</button>
     </form>
-
+    <button type="reset" onclick="location.href='<?= ROOT_URL ?>'">Cancel</button>
 
 </div>
 
