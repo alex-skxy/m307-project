@@ -20,10 +20,9 @@
 ![edit](doc/edit.png)
 
 ## Validation
-
 ### Create - From
 
-| Filename | Route| 
+| Field-Name | Route | 
 |--------|---------|
 | name   | not empty, no special characters, no numbers |
 | lastname | not empty, no special characters, no numbers  |
@@ -35,6 +34,7 @@
 ### Edit - From
 
 | Filename | Route| 
+| Field-Name | Route | 
 |--------|---------|
 | name   | no
 | name   | not empty, no special characters, no numbers |
@@ -47,8 +47,7 @@
 ## Database
 
 ### person
-
-| field-name | datatype | 
+| Field-Name | Datatype | 
 |--------|---------|
 | id_person | INT, PRIMARY KEY, A.I |
 | name | Varchar(100), NOT NULL |
@@ -60,12 +59,17 @@
 | start_date | Datetime, DEFAULT = NOW |
 
 ### loan
-
-| field-name | datatype | 
+| Field-name | Datatype | 
 |--------|---------|
 | id_creditpackages | INT, PRIMARY KEY, A.I | 
 | name | Varchar(50), NOT NULL | 
 
 ## Test cases
-
 Project for ÜK Modul 307
+
+### 1. test case
+| State | Action | 
+|--------|---------|
+| Given | I've connected with the /create route and the form is showing. | 
+| When | I fill the form with the following information: <br> name: Max <br> lastname: Mustermann <br> e-mail: max.mustermann@sluz.ch <br> phone: +41 77 449 75 00 <br> loan package: example package 1000 <br> amount of instalments: 2 <br> I click on the create button. | 
+| Then | Varchar(50), NOT NULL | 
