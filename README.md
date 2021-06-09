@@ -28,7 +28,7 @@
 | name   | not empty, no special characters, no numbers |
 | lastname | not empty, no special characters, no numbers  |
 | e-mail | not empty, valid e-mail |
-| phone number | not empty, only numbers, whitespace and + |
+| phone number | can be empty, only numbers, whitespace and + |
 | amount installments | not empty, only numbers (integer), no whitespaces, 1-10 |
 | loan package | not empty, only values from the list of available loan packages  |
 
