@@ -37,14 +37,15 @@
                 <td><?= e($loan['payback_date']) ?></td>
                 <td><?= $loan['due'] == 0 ? '&#127774;' : '&#9889;' ?></td>
                 <td>
-                    <button onclick="window.location.href='/edit?id=<?= $loan['id_loan'] ?>'">&#x270F;&#xFE0F; edit
+                    <button onclick="window.location.href='<?= ROOT_URL ?>/edit?id=<?= $loan['id_loan'] ?>'">&#x270F;&#xFE0F;
+                        edit
                     </button>
                 </td>
             </tr>
         <?php } ?>
     </table>
-    <button onclick="window.location.href='/home'">&#127968; Go back home</button>
-    <button onclick="window.location.href='/create'">&#10133; Create new loan</button>
+    <button onclick="window.location.href='<?= ROOT_URL ?>/home'">&#127968; Go back home</button>
+    <button onclick="window.location.href='<?= ROOT_URL ?>/create'">&#10133; Create new loan</button>
 </div>
 
 <script src="public/js/app.js"></script>
