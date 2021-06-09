@@ -10,7 +10,7 @@
 <body>
 <div class="container">
     <h1 class="welcome">Create a new loan</h1>
-    <form>
+    <form method="post">
         <label for="name">Firstname</label>
         <input type="text" id="name" name="name" placeholder="Firstname">
         <label for="lastname">Lastname</label>
@@ -22,7 +22,7 @@
         <label for="installments">Amount installments</label>
         <input type="text" id="installments" name="installments" placeholder="Amount installments">
         <label for="creditpackage">Loan package</label>
-        <select id="creditpackage">
+        <select id="creditpackage" name="creditpackage">
             <?php
             foreach ($creditpackageData as $index => $creditpackage) {
                 echo "<option value='" . $creditpackage["id_creditpackage"] . "'>" . $creditpackage["name"] . "</option>";
