@@ -30,7 +30,7 @@
                 <td><?= e($loan['name']) ?></td>
                 <td><?= e($loan['lastname']) ?></td>
                 <td><?= e($loan['email']) ?></td>
-                <td><?= e($loan['phone_number']) ?></td>
+                <td><?= isset($loan['phone_number']) ? e($loan['phone_number']) : '' ?></td>
                 <td><?= e($loan['installments']) ?></td>
                 <td><?= e($loan['credit_package']) ?></td>
                 <td><?= e($loan['payback_date']) ?></td>
