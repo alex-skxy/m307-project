@@ -58,7 +58,7 @@ class CreateController
         if (!(isset($data['email']) && preg_match($email_regex, $data['email']))) {
             $errors[] = "Email can't be empty and must contain an @ and a domain name";
         }
-        if (!(isset($data['phone_number']) && preg_match($phone_regex, $data['phone_number']))) {
+        if (isset($data['phone_number']) && !($data['phone_number'] === '') && !(preg_match($phone_regex, $data['phone_number']))) {
             $errors[] = "Phone number can't be empty and can only contain numbers, whitespace and a +";
         }
         if (!(isset($data['installments']) && is_numeric($data['installments']) && $data['installments'] > 0 && $data['installments'] < 11)) {

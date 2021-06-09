@@ -10,9 +10,9 @@ CREATE TABLE loan
     name                VARCHAR(100) NOT NULL,
     lastname            VARCHAR(100) NOT NULL,
     email               VARCHAR(100) NOT NULL,
-    phone_number        VARCHAR(100) NOT NULL,
+    phone_number        VARCHAR(100),
     installments        INT          NOT NULL,
-    fk_creditpackage_id INT REFERENCES creditpackage (id_creditpackage),
+    fk_creditpackage_id INT REFERENCES creditpackage (id_creditpackage) NOT NULL,
     paid_back           BOOLEAN      NOT NULL DEFAULT false,
     start_date          DATETIME              DEFAULT NOW()
 );
