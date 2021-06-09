@@ -31,7 +31,7 @@
         </select>
 
         <label for="tbxPayday">Repayment date</label>
-        <input type="text" id="tbxPayday" name="Repayment date">
+        <input type="date" id="tbxPayday" name="Repayment date" placeholder="Repayment date" disabled>
 
 
         <button type="reset">Cancel</button>
