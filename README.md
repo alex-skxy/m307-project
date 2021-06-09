@@ -1,4 +1,7 @@
-# m307-project
+# Kredihay Loan Management
+
+##Roadmap
+<h1>TODO</h1>
 
 ## Sitemap
 
@@ -34,10 +37,16 @@
 
 ### Edit Form
 
-| Filename | Route| | Field-Name | Route | |--------|---------| | name | no | name | not empty, no special characters,
-no numbers | | lastname | not empty, no special characters, no numbers | | e-mail | not empty, valid e-mail | | phone |
-not empty, only numbers and + | | loan package | not empty, only numbers, no whitespaces, no numbers | | status |
-boolean: true - the loan has been fully repaid, false - the loan has not been repaid yet |
+| Field-Name | Route | 
+|--------|---------|
+| name   | no
+| name   | not empty, no special characters, no numbers |
+| lastname | not empty, no special characters, no numbers  |
+| e-mail | not empty, valid e-mail |
+| phone | not empty, only numbers and + |
+| loan package | not empty, only numbers, no whitespaces, no numbers |
+| status | boolean: true - the loan has been fully repaid, false - the loan has not been repaid yet |
+
 
 ## Database
 
