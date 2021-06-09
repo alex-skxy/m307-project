@@ -1,12 +1,16 @@
 <?php
+require 'app/Models/Example.php';
 
 class CreateController
 {
+
     public function index()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->create($_POST);
         } else {
+            $exampleModel = new Example();
+            $creditpackageData = $exampleModel->getAll("creditpackage");
             require 'app/Views/create.view.php';
         }
     }

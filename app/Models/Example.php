@@ -42,12 +42,17 @@ class Example
 	}
 
 	/**
-	 * Alle Datensätze (welche eine Bedingung erfüllen) von der Datenbank laden
+	 * Alle Datensätze von Tabelle (welche eine Bedingung erfüllen) von der Datenbank laden
 	 */
-	public function getAll(string $whereCondition = '')
-	{
-		$queryString = 'SELECT * FROM example' . ($whereCondition?(' WHERE ' . $whereCondition):'');
-		// Dein Code ...
+	public function getAll(string $table, string $whereCondition = ''): array
+    {
+	    $db = db();
+		$queryString = 'SELECT * FROM '. $table . ' ' . ($whereCondition?('WHERE ' . $whereCondition):'');
+
+        $statement = $db->prepare($queryString);
+        $statement->execute();
+
+        return $statement->fetchAll();
 	}
 
 	/**
@@ -80,6 +85,9 @@ class Example
 	 */
 	public function delete(int $id = 0): int
 	{
+        $db = db();
+        $statement = $db->prepare(""); //TODO
+
 		// Falls keine $id angegeben ist, lösche den aktuell geladenen ($this->id) des Objektes.
 		if ($id == 0) {
 			$id = $this->id;
