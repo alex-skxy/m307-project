@@ -8,14 +8,37 @@
     <link rel="stylesheet" href="public/css/app.css">
 </head>
 <body>
-    <div class="container">
-    
-        <h1 class="welcome">Willkommen im 307-Framework!</h1>
+<div class="container">
 
-        <p><?= e($hello) ?></p>
+    <h1 class="welcome">Loan overview</h1>
 
-    </div>
+    <table>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>E-Mail</th>
+            <th>Installments</th>
+            <th>Credit package</th>
+            <th>Paid back</th>
+            <th>Pay back until</th>
+        </tr>
+        <?php
+        foreach ($result as $loan) {
+            ?>
+            <tr>
+                <td><?= e($loan['firstname']) ?></td>
+                <td><?= e($loan['lastname']) ?></td>
+                <td><?= e($loan['email']) ?></td>
+                <td><?= e($loan['installments']) ?></td>
+                <td><?= e($loan['credit_package']) ?></td>
+                <td><?= e($loan['paid_back']) ?></td>
+                <td><?= e($loan['payback_date']) ?></td>
+            </tr>
+        <?php } ?>
+    </table>
 
-    <script src="public/js/app.js"></script>
+</div>
+
+<script src="public/js/app.js"></script>
 </body>
 </html>

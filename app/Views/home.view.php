@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="public/css/app.css">
 </head>
 <body>
-    <div class="container">
-    
-        <h1 class="welcome">Willkommen im 307-Framework!</h1>
+<div class="container">
 
-        <p><?= e($hello) ?></p>
+    <h1 class="welcome">Kredihay Loan Management</h1>
+    <ul>
+        <li><a href="list">/list</a></li>
+        <li><a href="create">/create</a></li>
+    </ul>
+</div>
 
-    </div>
-
-    <script src="public/js/app.js"></script>
+<script src="public/js/app.js"></script>
 </body>
 </html>
