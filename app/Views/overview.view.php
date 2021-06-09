@@ -17,22 +17,24 @@
             <th>Firstname</th>
             <th>Lastname</th>
             <th>E-Mail</th>
+            <th>Phone number</th>
             <th>Installments</th>
             <th>Credit package</th>
-            <th>Paid back</th>
             <th>Pay back until</th>
+            <th>Due</th>
         </tr>
         <?php
         foreach ($result as $loan) {
             ?>
             <tr>
-                <td><?= e($loan['firstname']) ?></td>
+                <td><?= e($loan['name']) ?></td>
                 <td><?= e($loan['lastname']) ?></td>
                 <td><?= e($loan['email']) ?></td>
+                <td><?= e($loan['phone_number']) ?></td>
                 <td><?= e($loan['installments']) ?></td>
                 <td><?= e($loan['credit_package']) ?></td>
-                <td><?= e($loan['paid_back']) ?></td>
                 <td><?= e($loan['payback_date']) ?></td>
+                <td><?= $loan['due'] == 0 ? '&#127774;' : '&#9889;' ?></td>
             </tr>
         <?php } ?>
     </table>
