@@ -43,7 +43,7 @@
             </tr>
         <?php } ?>
     </table>
-    <button onclick="window.location.href='/home">&#127968; Go back home</button>
+    <button onclick="window.location.href='/home'">&#127968; Go back home</button>
     <button onclick="window.location.href='/create'">&#10133; Create new loan</button>
 </div>
 
