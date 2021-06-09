@@ -11,7 +11,7 @@ $routes = [
 ];
 
 $db = [
-    'name' => 'meinedatenbank',
+    'name' => 'db_kredihay',
     'username' => 'root',
     'password' => '',
 ];
