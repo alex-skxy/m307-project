@@ -31,7 +31,7 @@
         <fieldset>
             <legend>Loan Information</legend>
             <label for="installments">Amount installments</label>
-            <input type="number" id="installments" name="installments" placeholder="Amount installments" min="1" max="10">
+            <input type="number" id="installments" name="installments" placeholder="Amount installments" min="1" max="10" onblur="setRepaymentDate()">
             <label for="creditpackage">Loan package</label>
             <select id="creditpackage" name="creditpackage">
                 <?php
@@ -52,5 +52,20 @@
 </div>
 
 <script src="public/js/app.js"></script>
+<script>
+    function calculateDate() {
+        const daysToAdd = document.getElementById('installments').value * 15;
+        let date = new Date(Date.now());
+        date.setDate(date.getDate() + daysToAdd);
+        console.log(date);
+        return date;
+    }
+
+    function setRepaymentDate() {
+        const date = calculateDate().toISOString().substring(0, 10);
+        console.log(date);
+        document.getElementById('tbxPayday').value = date;
+    }
+</script>
 </body>
 </html>
