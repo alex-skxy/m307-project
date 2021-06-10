@@ -10,7 +10,7 @@ class EditController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->edit($_POST);
             $rooturl = ROOT_URL;
-            header( "Location: $rooturl/list" );
+            header("Location: $rooturl/list");
         } else {
             $creditpackageModel = new CreditpackageModel();
             $loanModel = new LoanModel();
@@ -43,7 +43,7 @@ class EditController
     fk_creditpackage_id = :creditpackage_id,
     paid_back = :paid_back
 WHERE id_loan = :id;");
-        $statement->bindParam(':id', $data['id']);
+        $statement->bindParam(':id', $_GET['id']);
         $statement->bindParam(':name', $data['name']);
         $statement->bindParam(':lastname', $data['lastname']);
         $statement->bindParam(':email', $data['email']);
@@ -73,8 +73,8 @@ WHERE id_loan = :id;");
         if (!(isset($data['email']) && preg_match($email_regex, $data['email']))) {
             $errors[] = "Email can't be empty and must contain an @ and a domain name";
         }
-        if (!(isset($data['phone_number']) && preg_match($phone_regex, $data['phone_number']))) {
-            $errors[] = "Phone number can't be empty and can only contain numbers, whitespace and a +";
+        if (isset($data['phone_number']) && !($data['phone_number'] === '') && !(preg_match($phone_regex, $data['phone_number']))) {
+            $errors['phone_number'] = "Phone number can't be empty and can only contain numbers, whitespace and a +";
         }
         if (!(isset($data['creditpackage']) && is_numeric($data['creditpackage']) && $data['creditpackage'] >= 0 && $data['creditpackage'] < 46)) {
             $errors[] = "No such loan package";
