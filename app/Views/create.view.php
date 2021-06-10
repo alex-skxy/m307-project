@@ -19,7 +19,6 @@
 
             <label for="lastname">Lastname</label>
             <input type="text" id="lastname" name="lastname" placeholder="Lastname" required><br>
-            <br>
 
             <label for="email">E-Mail</label>
             <input type="email" id="email" name="email" placeholder="E-Mail" required><br>
