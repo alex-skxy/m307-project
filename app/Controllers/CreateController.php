@@ -8,6 +8,8 @@ class CreateController
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->create($_POST);
+            $rooturl = ROOT_URL;
+            header( "Location: $rooturl/create" );
         } else {
             $exampleModel = new Example();
             $creditpackageData = $exampleModel->getAll("creditpackage");
