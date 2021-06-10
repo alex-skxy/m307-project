@@ -15,14 +15,14 @@
             <legend>Personal Information</legend>
 
             <label for="name">Firstname</label>
-            <input type="text" id="name" name="name" placeholder="Firstname">
+            <input type="text" id="name" name="name" placeholder="Firstname" required>
 
             <label for="lastname">Lastname</label>
-            <input type="text" id="lastname" name="lastname" placeholder="Lastname">
+            <input type="text" id="lastname" name="lastname" placeholder="Lastname" required>
             <br>
 
             <label for="email">E-Mail</label>
-            <input type="text" id="email" name="email" placeholder="E-Mail">
+            <input type="email" id="email" name="email" placeholder="E-Mail" required>
 
             <label for="phone_number">Phone number</label>
             <input type="text" id="phone_number" name="phone_number" placeholder="Phone number">
@@ -32,9 +32,9 @@
             <legend>Loan Information</legend>
             <label for="installments">Amount installments</label>
             <input type="number" id="installments" name="installments" placeholder="Amount installments" min="1"
-                   max="10" onchange="setRepaymentDate()" value="1">
+                   max="10" value="1" required>
             <label for="creditpackage">Loan package</label>
-            <select id="creditpackage" name="creditpackage">
+            <select id="creditpackage" name="creditpackage" required>
                 <?php
                 foreach ($creditpackageData as $index => $creditpackage) {
                     echo "<option value='" . $creditpackage["id_creditpackage"] . "'>" . $creditpackage["name"] . "</option>";
@@ -58,74 +58,13 @@
 <script>
     window.addEventListener('load', () => {
         document.querySelector('form').addEventListener('submit', async e => {
-            return await submitForm(e);
+            return await submitForm(e, '<?= ROOT_URL ?>/create', '<?= ROOT_URL ?>/validate?q=create', '<?php echo ROOT_URL ?>/list');
         });
+        setRepaymentDate()
+        document.querySelector('#installments').addEventListener('onchange', e => {
+            setRepaymentDate()
+        })
     });
-
-    async function submitForm(e) {
-        e.preventDefault();
-        const form = document.querySelector('form');
-        const data = new FormData(form);
-
-        const res = await fetchValidationResults(data);
-        if (res !== 'ok') {
-            displayValidationResult(res);
-            return false;
-        } else {
-            const res = await fetch('<?= ROOT_URL ?>/create',
-                {
-                    method: 'POST',
-                    body: data
-                });
-            console.log('form sent :)');
-            window.location.href = '<?php echo ROOT_URL ?>/list';
-            return true;
-        }
-    }
-
-    function calculateDate() {
-        const daysToAdd = document.getElementById('installments').value * 15;
-        let date = new Date(Date.now());
-        date.setDate(date.getDate() + daysToAdd);
-        console.log(date);
-        return date;
-    }
-
-    function setRepaymentDate() {
-        const date = calculateDate().toISOString().substring(0, 10);
-        console.log(date);
-        document.getElementById('tbxPayday').value = date;
-    }
-
-    async function validateForm() {
-        const form = document.querySelector('form');
-        const data = new FormData(form);
-        console.log(data.get('name'));
-        console.log(data);
-
-        const res = await fetchValidationResults(data);
-        console.log(res !== 'ok');
-        if (res !== 'ok') {
-            displayValidationResult(res);
-        }
-        console.log(res);
-    }
-
-    function displayValidationResult(results) {
-        alert(Object.values(results).map(result => `❌️${result}`).join('\n'));
-    }
-
-    async function fetchValidationResults(data) {
-        const res = await fetch('<?= ROOT_URL ?>/validate?q=create',
-            {
-                method: 'POST',
-                body: data
-            });
-        const json = await res.json();
-
-        console.log(json);
-        return json;
-    }
 </script>
 </body>
 </html>

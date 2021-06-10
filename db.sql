@@ -12,7 +12,7 @@ CREATE TABLE loan
     email               VARCHAR(100) NOT NULL,
     phone_number        VARCHAR(100),
     installments        INT          NOT NULL,
-    fk_creditpackage_id INT REFERENCES creditpackage (id_creditpackage) NOT NULL,
+    fk_creditpackage_id INT NOT NULL REFERENCES creditpackage (id_creditpackage),
     paid_back           BOOLEAN      NOT NULL DEFAULT false,
     start_date          DATETIME              DEFAULT NOW()
 );

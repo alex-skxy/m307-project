@@ -11,11 +11,16 @@ class EditController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->edit($_POST);
         } else {
-            $creditpackageModel = new CreditpackageModel();
-            $loanModel = new LoanModel();
-            $creditpackageData = $creditpackageModel->getAll("creditpackage");
-            $result = $loanModel->load("loan", $_GET['id']);
-            require 'app/Views/edit.view.php';
+            if (isset($_GET['id'])) {
+                $creditpackageModel = new CreditpackageModel();
+                $loanModel = new LoanModel();
+                $creditpackageData = $creditpackageModel->getAll("creditpackage");
+                $result = $loanModel->load("loan", $_GET['id']);
+                require 'app/Views/edit.view.php';
+            } else {
+                http_response_code(422);
+                echo 'Id parameter is required';
+            }
         }
     }
 
