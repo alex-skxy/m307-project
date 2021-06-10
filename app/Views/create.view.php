@@ -63,16 +63,22 @@
     });
 
     async function submitForm(e) {
+        e.preventDefault();
         const form = document.querySelector('form');
         const data = new FormData(form);
 
         const res = await fetchValidationResults(data);
         if (res !== 'ok') {
             displayValidationResult(res);
-            e.preventDefault();
             return false;
         } else {
+            const res = await fetch('/create',
+                {
+                    method: 'POST',
+                    body: data
+                });
             console.log('form sent :)');
+            window.location.href = '<?= ROOT_URL ?>';
             return true;
         }
     }

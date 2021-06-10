@@ -67,10 +67,15 @@
         const res = await fetchValidationResults(data);
         if (res !== 'ok') {
             displayValidationResult(res);
-            e.preventDefault();
             return false;
         } else {
+            const res = await fetch('/edit',
+                {
+                    method: 'POST',
+                    body: data
+                });
             console.log('form sent :)');
+            window.location.href = '<?= ROOT_URL ?>';
             return true;
         }
     }

@@ -10,8 +10,6 @@ class EditController
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->edit($_POST);
-            $rooturl = ROOT_URL;
-            header("Location: $rooturl/list");
         } else {
             $creditpackageModel = new CreditpackageModel();
             $loanModel = new LoanModel();
