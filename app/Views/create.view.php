@@ -78,7 +78,7 @@
                     body: data
                 });
             console.log('form sent :)');
-            window.location.href = '<?= ROOT_URL ?>';
+            window.location.href = '<?php ROOT_URL . "/list" ?>';
             return true;
         }
     }

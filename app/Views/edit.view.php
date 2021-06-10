@@ -69,13 +69,13 @@
             displayValidationResult(res);
             return false;
         } else {
-            const res = await fetch('<?= ROOT_URL ?>/edit',
+            const res = await fetch('<?= ROOT_URL ?>/edit?id=<?= $_GET['id'] ?>',
                 {
                     method: 'POST',
                     body: data
                 });
             console.log('form sent :)');
-            window.location.href = '<?= ROOT_URL ?>';
+            window.location.href = '<?php ROOT_URL . "/list" ?>';
             return true;
         }
     }
