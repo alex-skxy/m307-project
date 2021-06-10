@@ -1,7 +1,38 @@
 # Kredihay Loan Management
 
 ##Roadmap
-<h1>TODO</h1>
+AK = Alexandra Kina <br>
+LL = Laurin Lötscher
+
+| Person | 08.06.2021 - Afternoon |
+|--------|---------|
+| LL   | Write the Concept for the Project |
+| AK | Make wireframes for the views |
+| AK | Create git-repository |
+
+| Person | 09.06.2021 - Morning |
+|--------|---------|
+| AK | Create database and data structure |
+| LL | Finish concept |
+| LL | Start with creating the views |
+| AK | Start creating the controllers |
+
+| Person | 09.06.2021 - Afternoon |
+|--------|---------|
+| LL | Work on Views |
+| AK | Work on controller |
+
+| Person | 10.06.2021 - Morning |
+|--------|---------|
+| LL | Work on model |
+| LL & AK | Bug fixing and adding functions |
+| AK | Start working on the validation |
+
+| Person | 09.06.2021 - Afternoon |
+|--------|---------|
+| AK | Finish the validation |
+| AK | Put our project on the server |
+| LL & AK | Testing |
 
 ## Sitemap
 
@@ -26,7 +57,7 @@
 
 ### Create Form
 
-| Field-Name | Route | 
+| Field-Name | Rules | 
 |--------|---------|
 | name   | not empty, no special characters, no numbers |
 | lastname | not empty, no special characters, no numbers  |
@@ -37,7 +68,7 @@
 
 ### Edit Form
 
-| Field-Name | Route | 
+| Field-Name | Rules | 
 |--------|---------|
 | name   | no
 | name   | not empty, no special characters, no numbers |
