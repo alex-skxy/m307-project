@@ -82,7 +82,7 @@ class ValidationController
         if (!(isset($data['name']) && preg_match(ValidationController::simpletext_regex, $data['name']))) {
             $errors['name'] = "Name can't be empty or contain any numbers or special characters";
         }
-        if (!(isset($data['lastname']) && preg_match(ValidationController::simpletext_regex, $data['name']))) {
+        if (!(isset($data['lastname']) && preg_match(ValidationController::simpletext_regex, $data['lastname']))) {
             $errors['name'] = "Name can't be empty or contain any numbers or special characters";
         }
     }
