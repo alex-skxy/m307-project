@@ -31,7 +31,7 @@
             <legend>Loan Information</legend>
             <label for="installments">Amount installments</label>
             <input type="number" id="installments" name="installments" placeholder="Amount installments" min="1"
-                   max="10" value="1" required><br>
+                   max="10" value="1" required onchange="setRepaymentDate()"><br>
             <label for="creditpackage">Loan package</label>
             <select id="creditpackage" name="creditpackage" required>
                 <?php
@@ -60,7 +60,7 @@
             return await submitForm(e, '<?= ROOT_URL ?>/create', '<?= ROOT_URL ?>/validate?q=create', '<?php echo ROOT_URL ?>/list');
         });
         setRepaymentDate()
-        document.querySelector('#installments').addEventListener('onchange', e => {
+        document.querySelector('#installments').addEventListener('onchange', () => {
             setRepaymentDate()
         })
     });
