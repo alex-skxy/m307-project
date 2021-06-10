@@ -46,7 +46,7 @@
             <input type="date" id="tbxPayday" name="Repayment date" placeholder="Repayment date" disabled>
         </fieldset>
 
-        <button type="submit">Create Loan</button>
+        <button type="submit" id="submit-btn">Create Loan</button>
     </form>
     <button type="reset" onclick="location.href='<?= ROOT_URL ?>'">Cancel</button>
 
@@ -54,6 +54,27 @@
 
 <script src="public/js/app.js"></script>
 <script>
+    window.addEventListener('load', () => {
+        document.querySelector('form').addEventListener('submit', async e => {
+            return await submitForm(e);
+        });
+    });
+
+    async function submitForm(e) {
+        const form = document.querySelector('form');
+        const data = new FormData(form);
+
+        const res = await fetchValidationResults(data);
+        if (res !== 'ok') {
+            displayValidationResult(res);
+            e.preventDefault();
+            return false;
+        } else {
+            console.log('form sent :)');
+            return true;
+        }
+    }
+
     function calculateDate() {
         const daysToAdd = document.getElementById('installments').value * 15;
         let date = new Date(Date.now());

@@ -7,6 +7,7 @@ $routes = [
     '/list' => 'OverviewController@index',
     '/create' => 'CreateController@index',
     '/edit' => 'EditController@index',
+    '/validate' => 'ValidationController@index',
 
 ];
 
