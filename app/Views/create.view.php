@@ -72,7 +72,7 @@
             displayValidationResult(res);
             return false;
         } else {
-            const res = await fetch('/create',
+            const res = await fetch('<?= ROOT_URL ?>/create',
                 {
                     method: 'POST',
                     body: data

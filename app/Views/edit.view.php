@@ -69,7 +69,7 @@
             displayValidationResult(res);
             return false;
         } else {
-            const res = await fetch('/edit',
+            const res = await fetch('<?= ROOT_URL ?>/edit',
                 {
                     method: 'POST',
                     body: data
