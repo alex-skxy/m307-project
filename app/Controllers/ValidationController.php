@@ -20,9 +20,32 @@ class ValidationController
         }
     }
 
+
     public static function validateEdit(array $data): array
     {
-        return [];
+        $errors = [];
+        $simpletext_regex = "/^[\p{L} ]+$/";
+        $email_regex = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/";
+        $phone_regex = "/^[+0][\d ]+$/";
+
+        if (!(isset($data['name']) && preg_match($simpletext_regex, $data['name']))) {
+            $errors[] = "Name can't be empty or contain any numbers or special characters";
+        }
+
+        if (!(isset($data['lastname']) && preg_match($simpletext_regex, $data['lastname']))) {
+            $errors[] = "Lastname can't be empty or contain any numbers or special characters";
+        }
+        if (!(isset($data['email']) && preg_match($email_regex, $data['email']))) {
+            $errors[] = "Email can't be empty and must contain an @ and a domain name";
+        }
+        if (isset($data['phone_number']) && !($data['phone_number'] === '') && !(preg_match($phone_regex, $data['phone_number']))) {
+            $errors['phone_number'] = "Phone number can't be empty and can only contain numbers, whitespace and a +";
+        }
+        if (!(isset($data['creditpackage']) && is_numeric($data['creditpackage']) && $data['creditpackage'] >= 0 && $data['creditpackage'] < 46)) {
+            $errors[] = "No such loan package";
+        }
+
+        return $errors;
     }
 
     public static function validateCreate(array $data): array

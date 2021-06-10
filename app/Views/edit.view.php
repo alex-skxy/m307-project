@@ -44,7 +44,7 @@
             <label for="checkbox">Status</label>
         </fieldset>
 
-        <button type="submit">Save Loan</button>
+        <button type="submit" id="submit-btn">Save Loan</button>
     </form>
 
     <button type="reset" onclick="location.href='<?php echo ROOT_URL . "/list" ?>'">Cancel</button>
@@ -52,5 +52,58 @@
 </div>
 
 <script src="public/js/app.js"></script>
+<script>
+    window.addEventListener('load', () => {
+        document.querySelector('form').addEventListener('submit', async e => {
+            return await submitForm(e);
+        });
+    });
+
+    async function submitForm(e) {
+        e.preventDefault();
+        const form = document.querySelector('form');
+        const data = new FormData(form);
+
+        const res = await fetchValidationResults(data);
+        if (res !== 'ok') {
+            displayValidationResult(res);
+            e.preventDefault();
+            return false;
+        } else {
+            console.log('form sent :)');
+            return true;
+        }
+    }
+
+    async function validateForm() {
+        const form = document.querySelector('form');
+        const data = new FormData(form);
+        console.log(data.get('name'));
+        console.log(data);
+
+        const res = await fetchValidationResults(data);
+        console.log(res !== 'ok');
+        if (res !== 'ok') {
+            displayValidationResult(res);
+        }
+        console.log(res);
+    }
+
+    function displayValidationResult(results) {
+        alert(Object.values(results).map(result => `❌️${result}`).join('\n'));
+    }
+
+    async function fetchValidationResults(data) {
+        const res = await fetch('/validate?q=edit',
+            {
+                method: 'POST',
+                body: data
+            });
+        const json = await res.json();
+
+        console.log(json);
+        return json;
+    }
+</script>
 </body>
 </html>

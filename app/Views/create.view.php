@@ -31,7 +31,8 @@
         <fieldset>
             <legend>Loan Information</legend>
             <label for="installments">Amount installments</label>
-            <input type="number" id="installments" name="installments" placeholder="Amount installments" min="1" max="10" onchange="setRepaymentDate()" value="1">
+            <input type="number" id="installments" name="installments" placeholder="Amount installments" min="1"
+                   max="10" onchange="setRepaymentDate()" value="1">
             <label for="creditpackage">Loan package</label>
             <select id="creditpackage" name="creditpackage">
                 <?php
@@ -87,6 +88,36 @@
         const date = calculateDate().toISOString().substring(0, 10);
         console.log(date);
         document.getElementById('tbxPayday').value = date;
+    }
+
+    async function validateForm() {
+        const form = document.querySelector('form');
+        const data = new FormData(form);
+        console.log(data.get('name'));
+        console.log(data);
+
+        const res = await fetchValidationResults(data);
+        console.log(res !== 'ok');
+        if (res !== 'ok') {
+            displayValidationResult(res);
+        }
+        console.log(res);
+    }
+
+    function displayValidationResult(results) {
+        alert(Object.values(results).map(result => `❌️${result}`).join('\n'));
+    }
+
+    async function fetchValidationResults(data) {
+        const res = await fetch('/validate?q=create',
+            {
+                method: 'POST',
+                body: data
+            });
+        const json = await res.json();
+
+        console.log(json);
+        return json;
     }
 </script>
 </body>
