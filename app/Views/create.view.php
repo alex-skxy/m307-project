@@ -15,14 +15,14 @@
             <legend>Personal Information</legend>
 
             <label for="name">Firstname</label>
-            <input type="text" id="name" name="name" placeholder="Firstname" required>
+            <input type="text" id="name" name="name" placeholder="Firstname" required><br>
 
             <label for="lastname">Lastname</label>
-            <input type="text" id="lastname" name="lastname" placeholder="Lastname" required>
+            <input type="text" id="lastname" name="lastname" placeholder="Lastname" required><br>
             <br>
 
             <label for="email">E-Mail</label>
-            <input type="email" id="email" name="email" placeholder="E-Mail" required>
+            <input type="email" id="email" name="email" placeholder="E-Mail" required><br>
 
             <label for="phone_number">Phone number</label>
             <input type="text" id="phone_number" name="phone_number" placeholder="Phone number">
@@ -32,7 +32,7 @@
             <legend>Loan Information</legend>
             <label for="installments">Amount installments</label>
             <input type="number" id="installments" name="installments" placeholder="Amount installments" min="1"
-                   max="10" value="1" required>
+                   max="10" value="1" required><br>
             <label for="creditpackage">Loan package</label>
             <select id="creditpackage" name="creditpackage" required>
                 <?php

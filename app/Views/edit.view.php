@@ -16,10 +16,10 @@
             <legend>Personal Information</legend>
 
             <label for="name">Firstname</label>
-            <input type="text" id="name" name="name" value="<?php echo e($result["name"]); ?>" required>
+            <input type="text" id="name" name="name" value="<?php echo e($result["name"]); ?>" required><br>
 
             <label for="lastname">Lastname</label>
-            <input type="text" id="lastname" name="lastname" value="<?php echo e($result['lastname']) ?>" required>
+            <input type="text" id="lastname" name="lastname" value="<?php echo e($result['lastname']) ?>" required><br>
 
             <label for="email">E-Mail</label>
             <input type="email" id="email" name="email" value="<?php echo e($result['email']) ?>" required><br>
@@ -39,7 +39,7 @@
                 }
                 ?>
             </select>
-
+            <br>
             <input type="checkbox" id="status" name="paid_back" value="1">
             <label for="checkbox">Status</label>
         </fieldset>
