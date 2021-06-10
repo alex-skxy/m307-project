@@ -8,7 +8,6 @@ class ValidationController
         if ($_GET['q'] === 'edit') {
             $result = $this->validateEdit($_POST);
         } elseif ($_GET['q'] === 'create') {
-            $this->validateCreate($_POST);
             $result = $this->validateCreate($_POST);
         }
 

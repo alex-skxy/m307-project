@@ -49,7 +49,8 @@
 
         <button type="submit" id="submit-btn">Create Loan</button>
     </form>
-    <button type="reset" onclick="location.href='<?= ROOT_URL ?>'">Cancel</button>
+
+    <button type="reset" onclick="location.href='<?= ROOT_URL . "/list" ?>'">Cancel</button>
 
 </div>
 
@@ -109,7 +110,7 @@
     }
 
     async function fetchValidationResults(data) {
-        const res = await fetch('/validate?q=create',
+        const res = await fetch('<?= ROOT_URL ?>/validate?q=create',
             {
                 method: 'POST',
                 body: data

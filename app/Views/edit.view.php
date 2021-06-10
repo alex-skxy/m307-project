@@ -47,7 +47,7 @@
         <button type="submit" id="submit-btn">Save Loan</button>
     </form>
 
-    <button type="reset" onclick="location.href='<?php echo ROOT_URL . "/list" ?>'">Cancel</button>
+    <button type="reset" onclick="location.href='<?= ROOT_URL . "/list" ?>'">Cancel</button>
 
 </div>
 
@@ -94,7 +94,7 @@
     }
 
     async function fetchValidationResults(data) {
-        const res = await fetch('/validate?q=edit',
+        const res = await fetch('<?= ROOT_URL ?>/validate?q=edit',
             {
                 method: 'POST',
                 body: data
