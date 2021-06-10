@@ -9,23 +9,24 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="welcome">Create a new loan</h1>
+    <h1 class="welcome">Edit loan</h1>
 
     <form method="post">
         <fieldset>
             <legend>Personal Information</legend>
 
             <label for="name">Firstname</label>
-            <input type="text" id="name" name="name" placeholder="Firstname">
+            <input type="text" id="name" name="name" value="<?php echo $result["name"]; ?>">
 
             <label for="lastname">Lastname</label>
-            <input type="text" id="lastname" name="lastname" placeholder="Lastname">
+            <input type="text" id="lastname" name="lastname" value="<?php echo $result['lastname'] ?>">
 
             <label for="email">E-Mail</label>
-            <input type="text" id="email" name="email" placeholder="E-Mail">
+            <input type="text" id="email" name="email" value="<?php echo $result['email'] ?>"><br>
 
             <label for="phone_number">Phone number</label>
-            <input type="text" id="phone_number" name="phone_number" placeholder="Phone number">
+            <input type="text" id="phone_number" name="phone_number" placeholder="+41 46 449 75 00"
+                   value="<?php echo $result['phone_number'] ?>">
         </fieldset>
 
         <fieldset>
@@ -46,7 +47,7 @@
         <button type="submit">Save Loan</button>
     </form>
 
-    <button type="reset" onclick="location.href='<?= ROOT_URL ?>'">Cancel</button>
+    <button type="reset" onclick="location.href='<?php echo ROOT_URL . "/list" ?>'">Cancel</button>
 
 </div>
 

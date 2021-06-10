@@ -1,5 +1,6 @@
 <?php
-require 'app/Models/Example.php';
+require 'app/Models/CreditpackageModel.php';
+require 'app/Models/LoanModel.php';
 
 class CreateController
 {
@@ -11,8 +12,8 @@ class CreateController
             $rooturl = ROOT_URL;
             header( "Location: $rooturl/create" );
         } else {
-            $exampleModel = new Example();
-            $creditpackageData = $exampleModel->getAll("creditpackage");
+            $CreditpackageModel = new CreditpackageModel();
+            $creditpackageData = $CreditpackageModel->getAll("creditpackage");
             require 'app/Views/create.view.php';
         }
     }

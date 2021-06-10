@@ -3,7 +3,7 @@
  * Das Model "Example" implementiert alle grundlegenden Funktionen einer Datenbank-
  * Anwendung: load (SELECT), save (INSERT oder UPDATE) und delete (DELETE).
  */
-class Example
+class GeneralModel
 {
 	public int $id = 0;
 	public string $name = '';
@@ -22,9 +22,9 @@ class Example
 	/**
 	 * Datensatz mit gegebener ID von der Datenbank ins Objekt laden
 	 */
-	public function load(int $id): ?self
+	public function load(string $table, int $id): ?self
 	{
-		$statement = db()->prepare('SELECT * FROM example WHERE id = :id LIMIT 1');
+		$statement = db()->prepare('SELECT * FROM ' . $table . ' WHERE id = :id LIMIT 1');
 		$statement->bindParam(':id', $id);
 		$statement->execute();
 		$result = $statement->fetch();
@@ -86,7 +86,7 @@ class Example
 	public function delete(int $id = 0): int
 	{
         $db = db();
-        $statement = $db->prepare(""); //TODO
+        $statement = $db->prepare("");
 
 		// Falls keine $id angegeben ist, lösche den aktuell geladenen ($this->id) des Objektes.
 		if ($id == 0) {

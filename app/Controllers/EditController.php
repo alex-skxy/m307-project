@@ -1,5 +1,6 @@
 <?php
-require 'app/Models/Example.php';
+require 'app/Models/CreditpackageModel.php';
+require 'app/Models/LoanModel.php';
 
 class EditController
 {
@@ -11,8 +12,10 @@ class EditController
             $rooturl = ROOT_URL;
             header( "Location: $rooturl/list" );
         } else {
-            $exampleModel = new Example();
-            $creditpackageData = $exampleModel->getAll("creditpackage");
+            $creditpackageModel = new CreditpackageModel();
+            $loanModel = new LoanModel();
+            $creditpackageData = $creditpackageModel->getAll("creditpackage");
+            $result = $loanModel->load("loan", $_GET['id']);
             require 'app/Views/edit.view.php';
         }
     }
@@ -63,6 +66,7 @@ WHERE id_loan = :id;");
         if (!(isset($data['name']) && preg_match($simpletext_regex, $data['name']))) {
             $errors[] = "Name can't be empty or contain any numbers or special characters";
         }
+
         if (!(isset($data['lastname']) && preg_match($simpletext_regex, $data['lastname']))) {
             $errors[] = "Lastname can't be empty or contain any numbers or special characters";
         }
