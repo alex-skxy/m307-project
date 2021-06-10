@@ -40,6 +40,7 @@
                 }
                 ?>
             </select>
+            <br>
 
             <label for="tbxPayday">Repayment date</label>
             <input type="date" id="tbxPayday" name="Repayment date" placeholder="Repayment date" disabled>
