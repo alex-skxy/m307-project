@@ -25,7 +25,7 @@
             <input type="text" id="email" name="email" value="<?php echo $result['email'] ?>"><br>
 
             <label for="phone_number">Phone number</label>
-            <input type="text" id="phone_number" name="phone_number" placeholder="+41 46 449 75 00"
+            <input type="text" id="phone_number" name="phone_number" placeholder="+41 00 000 00 00"
                    value="<?php echo $result['phone_number'] ?>">
         </fieldset>
 
