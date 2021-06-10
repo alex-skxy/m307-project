@@ -31,7 +31,7 @@
         <fieldset>
             <legend>Loan Information</legend>
             <label for="installments">Amount installments</label>
-            <input type="number" id="installments" name="installments" placeholder="Amount installments" min="1" max="10" onchange="setRepaymentDate()">
+            <input type="number" id="installments" name="installments" placeholder="Amount installments" min="1" max="10" onchange="setRepaymentDate()" value="1">
             <label for="creditpackage">Loan package</label>
             <select id="creditpackage" name="creditpackage">
                 <?php
