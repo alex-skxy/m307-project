@@ -32,32 +32,8 @@ class EditController
             http_response_code(422);
             echo json_encode($validation_result);
         } else {
-            $this->updateLoan($data);
+            $result = LoanModel::updateLoan($_GET['id'], $data);
         }
-    }
-
-    public function updateLoan($data)
-    {
-        $pdo = db();
-        $statement = $pdo->prepare("UPDATE loan SET
-	name = :name,
-	lastname = :lastname,
-    email = :email,
-    phone_number = :phone_number,
-    fk_creditpackage_id = :creditpackage_id,
-    paid_back = :paid_back
-WHERE id_loan = :id;");
-        $statement->bindParam(':id', $_GET['id']);
-        $statement->bindParam(':name', $data['name']);
-        $statement->bindParam(':lastname', $data['lastname']);
-        $statement->bindParam(':email', $data['email']);
-        $statement->bindParam(':phone_number', $data['phone_number']);
-        $statement->bindParam(':creditpackage_id', $data['creditpackage']);
-        $paid_back = isset($data['paid_back']) ? 1 : 0;
-        $statement->bindParam(':paid_back', $paid_back);
-
-        $statement->execute();
-        $result = $statement->fetchAll();
     }
 }
 
